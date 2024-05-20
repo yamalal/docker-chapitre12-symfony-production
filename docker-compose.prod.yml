@@ -8,6 +8,9 @@ services:
       - type: bind
         source: /root/.acme.sh/malal.fun
         target: /certs
+      - type: bind
+        source: .
+        target: /app
     ports:
       - 80:80
       - 443:443
@@ -23,6 +26,8 @@ services:
       - type: volume
         source: dbprod
         target: /var/lib/mysql
+
+
 
   fpm:
     build:
