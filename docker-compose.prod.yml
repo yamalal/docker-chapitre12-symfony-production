@@ -11,6 +11,8 @@ services:
     ports:
       - 80:80
       - 443:443
+    depends_on:
+      - fpm
   mysql:
     image: mysql:8.0
     restart: always
@@ -32,6 +34,9 @@ services:
       - type: bind
         source: .
         target: /app
+    depends_on:
+      - mysql
+
   node:
     build:
       context: .
