@@ -4,6 +4,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.nginx
+    volumes:
+      - type: bind
+        source: /root/.acme.sh/malal.fun
+        target: /certs
     ports:
       - 80:80
       - 443:443
